@@ -263,6 +263,28 @@ impl Activity {
             url: None,
         }
     }
+
+    pub fn custom(name: &str) -> Activity {
+        Activity {
+            application_id: None,
+            assets: None,
+            details: None,
+            flags: None,
+            instance: None,
+            kind: ActivityType::Custom,
+            name: name.to_string(),
+            party: None,
+            secrets: None,
+            state: None,
+            emoji: None,
+            timestamps: None,
+            #[cfg(feature = "unstable_discord_api")]
+            sync_id: None,
+            #[cfg(feature = "unstable_discord_api")]
+            session_id: None,
+            url: None,
+        }
+    }
 }
 
 impl<'de> Deserialize<'de> for Activity {
